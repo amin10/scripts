@@ -14,9 +14,13 @@ class S198_Handler(BaseHTTPRequestHandler):
         self.wfile.write("\n</HTML>")
         f.close()
         return
-try:
-    server = HTTPServer(('', 8000), S198_Handler)
-    print 'Started Server on port 8000'
-    server.serve_forever()
-except KeyboardInterrupt:
-    server.socket.close()
+def main():
+    try:
+        server = HTTPServer(('', 8000), S198_Handler)
+        print 'Started Server on port 8000'
+        server.serve_forever()
+    except KeyboardInterrupt:
+        server.socket.close()
+
+if __name__ == "__main__":
+    main();
